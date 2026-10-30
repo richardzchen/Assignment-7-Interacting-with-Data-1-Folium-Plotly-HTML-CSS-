@@ -24,7 +24,7 @@
     header {
       background: #153b4f;
       color: white;
-      padding: 44px max(24px, calc((100% - 1360px) / 2));
+      padding: 40px 24px;
     }
 
     header p {
@@ -35,23 +35,23 @@
     }
 
     h1 {
-      max-width: 1000px;
+      max-width: 1100px;
+      margin: 0 0 24px;
       font-size: clamp(26px, 3vw, 40px);
       line-height: 1.2;
-      margin: 0 0 22px;
     }
 
     nav {
       display: flex;
-      gap: 12px;
       flex-wrap: wrap;
+      gap: 12px;
     }
 
     nav a {
+      padding: 7px 14px;
       color: white;
       border: 1px solid #6f94a6;
       border-radius: 4px;
-      padding: 7px 14px;
       text-decoration: none;
     }
 
@@ -74,20 +74,20 @@
     .section-top {
       display: flex;
       justify-content: space-between;
-      gap: 16px;
       align-items: baseline;
       flex-wrap: wrap;
+      gap: 16px;
     }
 
     h2 {
+      margin: 0 0 8px;
       font-size: clamp(21px, 2vw, 28px);
       line-height: 1.3;
-      margin: 0 0 8px;
     }
 
     .description {
-      margin: 0 0 18px;
       max-width: 1000px;
+      margin: 0 0 18px;
       color: #4d6471;
     }
 
@@ -104,6 +104,11 @@
       background: white;
     }
 
+    .frame-wrap {
+      overflow-x: auto;
+      border-radius: 8px;
+    }
+
     #map-frame {
       height: 820px;
     }
@@ -113,31 +118,31 @@
       min-width: 760px;
     }
 
-    .frame-wrap {
-      overflow-x: auto;
-      border-radius: 8px;
+    #donuts-frame {
+      height: 680px;
+      min-width: 1000px;
     }
 
     .note {
+      margin: 10px 0 0;
       color: #637884;
       font-size: 13px;
-      margin: 10px 0 0;
     }
 
     footer {
-      border-top: 1px solid #d3dfe5;
       padding: 20px 0;
-      font-size: 13px;
+      border-top: 1px solid #d3dfe5;
       color: #637884;
+      font-size: 13px;
     }
 
     @media (max-width: 700px) {
-      main {
-        padding: 24px 12px;
-      }
-
       header {
         padding: 30px 20px;
+      }
+
+      main {
+        padding: 24px 12px;
       }
 
       #map-frame {
@@ -163,11 +168,15 @@
       <a href="#belonging">
         Explore Belonging And Mental Health
       </a>
+
+      <a href="#composition">
+        Compare Indigenous Composition
+      </a>
     </nav>
   </header>
 
   <main>
-    <!-- First visualization: Folium map -->
+    <!-- Part 1: Interactive map -->
     <section
       id="population"
       aria-labelledby="population-title"
@@ -207,7 +216,7 @@
       </p>
     </section>
 
-    <!-- Second visualization: animated Plotly scatterplot -->
+    <!-- Part 2: Animated scatterplot -->
     <section
       id="belonging"
       aria-labelledby="belonging-title"
@@ -250,12 +259,55 @@
       </p>
     </section>
 
+    <!-- Part 4: Donut subplots -->
+    <section
+      id="composition"
+      aria-labelledby="composition-title"
+    >
+      <div class="section-top">
+        <h2 id="composition-title">
+          3. Composition Of The Three Largest Indigenous Populations
+        </h2>
+
+        <a
+          href="donuts.html"
+          target="_blank"
+          rel="noopener"
+        >
+          Open Donut Charts In A New Tab ↗
+        </a>
+      </div>
+
+      <p class="description">
+        Ontario, Quebec, and Alberta are ordered by their total
+        Indigenous population. Each donut shows First Nations,
+        Inuit, and Métis shares within that location’s Indigenous
+        population only. Hover for counts and exact percentages.
+      </p>
+
+      <div class="frame-wrap">
+        <iframe
+          id="donuts-frame"
+          src="donuts.html"
+          title="Indigenous Composition Donut Charts For Ontario, Quebec, And Alberta"
+          loading="eager"
+        ></iframe>
+      </div>
+
+      <p class="note">
+        First Nations is the largest group in all three.
+        Quebec has the largest First Nations and Inuit shares,
+        while Alberta has the largest Métis share.
+        On narrow screens, scroll horizontally to view all
+        three donuts.
+      </p>
+    </section>
+
     <footer>
       Source: the supplied 2021 Canadian population and
       health-inequality data and Canada GeoJSON.
       First Nations in the scatterplot refers to First Nations
-      off reserve. Both original interactive HTML files are
-      preserved.
+      off reserve. All interactive HTML files are preserved.
     </footer>
   </main>
 </body>
