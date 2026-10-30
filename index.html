@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>
+    Canada: Population, Community Belonging And Mental Health
+  </title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f3f6f7;
+      color: #243b48;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #153b4f;
+      color: white;
+      padding: 44px max(24px, calc((100% - 1360px) / 2));
+    }
+
+    header p {
+      margin: 0 0 10px;
+      color: #b9dce6;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+    }
+
+    h1 {
+      max-width: 1000px;
+      font-size: clamp(26px, 3vw, 40px);
+      line-height: 1.2;
+      margin: 0 0 22px;
+    }
+
+    nav {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      border: 1px solid #6f94a6;
+      border-radius: 4px;
+      padding: 7px 14px;
+      text-decoration: none;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      background: #28556c;
+    }
+
+    main {
+      max-width: 1408px;
+      margin: auto;
+      padding: 32px 24px 48px;
+    }
+
+    section {
+      margin-bottom: 40px;
+      scroll-margin-top: 20px;
+    }
+
+    .section-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+
+    h2 {
+      font-size: clamp(21px, 2vw, 28px);
+      line-height: 1.3;
+      margin: 0 0 8px;
+    }
+
+    .description {
+      margin: 0 0 18px;
+      max-width: 1000px;
+      color: #4d6471;
+    }
+
+    a {
+      color: #155f7c;
+      text-underline-offset: 3px;
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      border: 1px solid #d3dfe5;
+      border-radius: 8px;
+      background: white;
+    }
+
+    #map-frame {
+      height: 820px;
+    }
+
+    #scatter-frame {
+      height: 980px;
+      min-width: 760px;
+    }
+
+    .frame-wrap {
+      overflow-x: auto;
+      border-radius: 8px;
+    }
+
+    .note {
+      color: #637884;
+      font-size: 13px;
+      margin: 10px 0 0;
+    }
+
+    footer {
+      border-top: 1px solid #d3dfe5;
+      padding: 20px 0;
+      font-size: 13px;
+      color: #637884;
+    }
+
+    @media (max-width: 700px) {
+      main {
+        padding: 24px 12px;
+      }
+
+      header {
+        padding: 30px 20px;
+      }
+
+      #map-frame {
+        height: 850px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <p>INTERACTING WITH DATA · CANADA · 2021</p>
+
+    <h1>
+      Population, Community Belonging And Mental Health
+    </h1>
+
+    <nav aria-label="Visualizations">
+      <a href="#population">
+        Explore The Population Map
+      </a>
+
+      <a href="#belonging">
+        Explore Belonging And Mental Health
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- First visualization: Folium map -->
+    <section
+      id="population"
+      aria-labelledby="population-title"
+    >
+      <div class="section-top">
+        <h2 id="population-title">
+          1. Indigenous Population Composition
+        </h2>
+
+        <a
+          href="map.html"
+          target="_blank"
+          rel="noopener"
+        >
+          Open Map In A New Tab ↗
+        </a>
+      </div>
+
+      <p class="description">
+        Select a layer to compare total Indigenous counts or
+        First Nations, Inuit, and Métis shares of each province
+        or territory’s total population. Hover over a region
+        for exact counts and percentages.
+      </p>
+
+      <iframe
+        id="map-frame"
+        src="map.html"
+        title="Interactive Map Of Indigenous Population Composition In Canada"
+        loading="eager"
+      ></iframe>
+
+      <p class="note">
+        Each layer uses its own six quantile classes.
+        Compare exact values in the tooltips; colors are not
+        a common numerical scale across layers.
+      </p>
+    </section>
+
+    <!-- Second visualization: animated Plotly scatterplot -->
+    <section
+      id="belonging"
+      aria-labelledby="belonging-title"
+    >
+      <div class="section-top">
+        <h2 id="belonging-title">
+          2. Community Belonging And Mental Health Support
+        </h2>
+
+        <a
+          href="scatter.html"
+          target="_blank"
+          rel="noopener"
+        >
+          Open Scatterplot In A New Tab ↗
+        </a>
+      </div>
+
+      <p class="description">
+        Use Play or the sex slider to switch between Both Sexes,
+        Males, and Females. Hover for each location’s percentages
+        and survey denominators. Population groups use distinct
+        colors and symbols.
+      </p>
+
+      <div class="frame-wrap">
+        <iframe
+          id="scatter-frame"
+          src="scatter.html"
+          title="Animated Scatterplot Of Community Belonging And Mental-Health Needs Met"
+          loading="eager"
+        ></iframe>
+      </div>
+
+      <p class="note">
+        Axes remain fixed at 0–100%. Missing percentages are
+        omitted. Only one Inuit record, from Nunavut, is available
+        per frame. On narrow screens, scroll horizontally within
+        the chart or open it in a new tab.
+      </p>
+    </section>
+
+    <footer>
+      Source: the supplied 2021 Canadian population and
+      health-inequality data and Canada GeoJSON.
+      First Nations in the scatterplot refers to First Nations
+      off reserve. Both original interactive HTML files are
+      preserved.
+    </footer>
+  </main>
+</body>
+</html>
